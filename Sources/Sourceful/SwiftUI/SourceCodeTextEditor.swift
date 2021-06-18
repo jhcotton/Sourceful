@@ -84,6 +84,7 @@ public struct SourceCodeTextEditor: _ViewRepresentable {
         let wrappedView = SyntaxTextView()
         wrappedView.delegate = context.coordinator
         wrappedView.theme = custom.theme()
+        wrappedView.contentTextView.tintColor = custom.insertionPointColor()
 //        wrappedView.contentTextView.insertionPointColor = custom.insertionPointColor()
         
         context.coordinator.wrappedView = wrappedView
@@ -94,7 +95,7 @@ public struct SourceCodeTextEditor: _ViewRepresentable {
     
     public func updateUIView(_ view: SyntaxTextView, context: Context) {
         if shouldBecomeFirstResponder {
-            view.becomeFirstResponder()
+            _ = view.becomeFirstResponder()
         }
     }
     #endif
